@@ -1,4 +1,7 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
+
 const phone = "09633150359";
 const messenger = "https://m.me/1287320214470715";
 const tel = `tel:${phone}`;
@@ -13,8 +16,213 @@ const services = [
 ];
 
 export default function Home() {
+    const [submitted, setSubmitted] = useState(false);
+  const [booking, setBooking] = useState({
+    name: "",
+    phone: "",
+    service: "",
+    pickup: "",
+    destination: "",
+    date: "",
+    time: "",
+    details: "",
+    notes: "",
+  });
+
+  const handleChange = (e) => {
+    setBooking({
+      ...booking,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const bookingMessage = `NEW GOBAE EXPRESS BOOKING
+
+Name: ${booking.name}
+Contact Number: ${booking.phone}
+Service: ${booking.service}
+Pick-up Location: ${booking.pickup}
+Destination: ${booking.destination}
+Date: ${booking.date}
+Preferred Time: ${booking.time}
+Order/Item Details: ${booking.details}
+Additional Notes: ${booking.notes}`;
+
+  const messengerLink = `https://m.me/GoBaeExpress?ref=${encodeURIComponent(
+    bookingMessage
+  )}`;
   return (
     <main>
+    <section className="booking-section" id="booking">
+  <div className="section-heading">
+    <span className="eyebrow">BOOK A DELIVERY</span>
+    <h2>Let GoBae Handle It 💗</h2>
+    <p>
+      Fill out the form below and send your booking request directly to
+      GoBae Express.
+    </p>
+  </div>
+
+  <div className="booking-card">
+    {!submitted ? (
+      <form onSubmit={handleSubmit} className="booking-form">
+        <div className="form-row">
+          <div className="form-group">
+            <label>Full Name *</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your full name"
+              value={booking.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Mobile Number *</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="09XXXXXXXXX"
+              value={booking.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Service Needed *</label>
+          <select
+            name="service"
+            value={booking.service}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select a service</option>
+            <option value="Food Delivery">Food Delivery</option>
+            <option value="Angkas / Ride">Angkas / Ride</option>
+            <option value="Grocery & Pasabuy">Grocery & Pasabuy</option>
+            <option value="Item Delivery">Item Delivery</option>
+            <option value="Hakot & Lipat Bahay">
+              Hakot & Lipat Bahay
+            </option>
+            <option value="Vehicle Rental">Vehicle Rental</option>
+          </select>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Pick-up Location *</label>
+            <input
+              type="text"
+              name="pickup"
+              placeholder="Where should we pick it up?"
+              value={booking.pickup}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Destination *</label>
+            <input
+              type="text"
+              name="destination"
+              placeholder="Where should we deliver?"
+              value={booking.destination}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Preferred Date *</label>
+            <input
+              type="date"
+              name="date"
+              value={booking.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Preferred Time *</label>
+            <input
+              type="time"
+              name="time"
+              value={booking.time}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Order / Item Details *</label>
+          <textarea
+            name="details"
+            placeholder="What would you like us to deliver?"
+            value={booking.details}
+            onChange={handleChange}
+            required
+          ></textarea>
+        </div>
+
+        <div className="form-group">
+          <label>Additional Notes</label>
+          <textarea
+            name="notes"
+            placeholder="Any special instructions?"
+            value={booking.notes}
+            onChange={handleChange}
+          ></textarea>
+        </div>
+
+        <button type="submit" className="booking-submit">
+          Continue Booking 💗
+        </button>
+      </form>
+    ) : (
+      <div className="booking-success">
+        <div className="success-icon">✓</div>
+
+        <h3>Your booking details are ready!</h3>
+
+        <p>
+          Click the button below to continue your booking through
+          GoBae Express Messenger.
+        </p>
+
+        <a
+          href={messengerLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="messenger-button"
+        >
+          💬 Send Booking via Messenger
+        </a>
+
+        <button
+          type="button"
+          className="edit-booking"
+          onClick={() => setSubmitted(false)}
+        >
+          Edit Booking
+        </button>
+      </div>
+    )}
+  </div>
+</section>
       <header className="nav">
         <a className="brand" href="#home" aria-label="GoBae Express home">
   <Image
