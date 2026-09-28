@@ -1,0 +1,18 @@
+{
+  "name": "GoBae Express",
+  "short_name": "GoBae Express",
+  "description": "Your Go-To Bae for Every Delivery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ef3f83",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/Gobae-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
