@@ -345,7 +345,7 @@ Additional Notes: ${booking.notes}`;
         <span className="eyebrow">READY WHEN YOU ARE</span>
         <h2>Need something delivered?</h2>
         <p>Message GoBae Express and let's get your booking started.</p>
-        <a className="primary" href={messenger}>Message GoBae Express 💗</a>
+        <a className="primary" href="#booking" >Message GoBae Express 💗</a>
       </section>
 
       <footer>
