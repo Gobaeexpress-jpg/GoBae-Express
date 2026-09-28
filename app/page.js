@@ -1,3 +1,4 @@
+import Image from "next/image";
 const phone = "09633150359";
 const messenger = "https://m.me/GoBaeExpress";
 const tel = `tel:${phone}`;
@@ -16,9 +17,15 @@ export default function Home() {
     <main>
       <header className="nav">
         <a className="brand" href="#home" aria-label="GoBae Express home">
-          <span className="logoMark">G</span>
-          <span>GoBae <b>Express</b></span>
-        </a>
+  <Image
+    src="/Gobae-logo.jpg"
+    alt="GoBae Express Logo"
+    width={55}
+    height={55}
+    className="logoImage"
+  />
+  <span>GoBae <b>Express</b></span>
+</a>
         <nav>
           <a href="#services">Services</a>
           <a href="#how">How It Works</a>
