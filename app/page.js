@@ -18,7 +18,7 @@ export default function Home() {
       <header className="nav">
         <a className="brand" href="#home" aria-label="GoBae Express home">
   <Image
-    src="/Gobae-logo.jpg"
+    src="/GoBae-logo.jpg"
     alt="GoBae Express Logo"
     width={55}
     height={55}
