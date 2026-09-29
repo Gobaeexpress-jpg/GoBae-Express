@@ -36,10 +36,28 @@ export default function Home() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxdTzPXxCB2bo89HFbmQXfHTBZ2h8N_Ly_ipKPTUfwvy47dVUaEkLzeTkFgs21wqHAMlw/exec";
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(booking),
+    });
+
     setSubmitted(true);
-  };
+  } catch (error) {
+    console.error("Booking submission error:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   const bookingMessage = `NEW GOBAE EXPRESS BOOKING
 
