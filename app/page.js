@@ -128,8 +128,6 @@ Additional Notes: ${booking.notes}`;
             <option value="Angkas / Ride">Angkas / Ride</option>
             <option value="Grocery & Pasabuy">Grocery & Pasabuy</option>
             <option value="Item Delivery">Item Delivery</option>
-            <option value="Hakot & Lipat Bahay">
-              Hakot & Lipat Bahay
             </option>
             <option value="Vehicle Rental">Vehicle Rental</option>
           </select>
