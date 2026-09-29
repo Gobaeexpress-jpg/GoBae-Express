@@ -1,10 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "GoBae Express | Your Go-To Bae for Every Delivery",
-  description:
-    "Delivery and booking services in Naga City and Partido Area.",
-  icons: {
+  title: "GoBae Express",
+  description: "Your Go-To Bae for Every Delivery.",
+  manifest: "/manifest.json",
+  themeColor: "#ef3f83",
+};
     icon: "/Gobae-logo.jpg",
     apple: "/Gobae-logo.jpg",
   },
