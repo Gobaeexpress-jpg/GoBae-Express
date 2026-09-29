@@ -40,7 +40,7 @@ export default function Home() {
   e.preventDefault();
 
   const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxdTzPXxCB2bo89HFbmQXfHTBZ2h8N_Ly_ipKPTUfwvy47dVUaEkLzeTkFgs21wqHAMlw/exec";
+    "https://script.google.com/macros/s/AKfycbwnV7KfrFcjDq_3rzF0AeprtsbYOtTUROgTuXXUF7DB5u5HkKtjEw1nELQcSD0bJDQ9Xw/exec";
 
   try {
     await fetch(GOOGLE_SCRIPT_URL, {
